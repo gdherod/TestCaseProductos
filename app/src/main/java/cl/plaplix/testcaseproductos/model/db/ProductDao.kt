@@ -11,6 +11,9 @@ interface ProductDao {
     @Query("SELECT * FROM product_table")
     fun getAllProduct(): LiveData<List<ProductEntity>>
 
+    @Query("SELECT * FROM detail_table")
+    fun getAllDetail(): LiveData<List<DetailEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllProducts(productList: List<ProductEntity>)
 
