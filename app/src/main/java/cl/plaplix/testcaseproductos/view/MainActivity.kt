@@ -1,7 +1,8 @@
-package cl.plaplix.testcaseproductos
+package cl.plaplix.testcaseproductos.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import cl.plaplix.testcaseproductos.R
 import cl.plaplix.testcaseproductos.model.Repository
 
 class MainActivity : AppCompatActivity() {
