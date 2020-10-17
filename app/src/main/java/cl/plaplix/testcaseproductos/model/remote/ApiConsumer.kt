@@ -18,7 +18,7 @@ interface FakeAPI {
 class RetrofitClient {
     companion object {
 
-        private const val BASE_URL = "http://my-json-server.typicode.com/Himuravidal/FakeAPIdata/"
+        private const val BASE_URL = "https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/"
 
         fun retrofitInstance(): FakeAPI {
             val retrofit = Retrofit.Builder()
