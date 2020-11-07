@@ -3,6 +3,7 @@ package cl.plaplix.testcaseproductos.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.plaplix.testcaseproductos.R
 import cl.plaplix.testcaseproductos.model.db.ProductEntity
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.product_item.view.*
 
 class ProductAdapter(private var myDataset: MutableList<ProductEntity>) :
     RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+    val phoneSelected = MutableLiveData<ProductEntity>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -29,6 +31,9 @@ class ProductAdapter(private var myDataset: MutableList<ProductEntity>) :
             .into(holder.productImg)
         holder.productName.text = product.name
         holder.productPrice.text = product.price.toString()
+        holder.itemView.setOnClickListener {
+            phoneSelected.value = myDataset[position]
+        }
     }
 
     override fun getItemCount(): Int {
