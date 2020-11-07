@@ -13,7 +13,7 @@ interface FakeAPI {
     suspend fun productsList(): Response<List<Product>>
 
     @GET("details/{id}")
-    suspend fun detailProduct(@Path("id") id: Int): Response<List<Detail>>
+    suspend fun detailProduct(@Path("id") id: Int): Response<Detail>
 }
 
 class RetrofitClient {
@@ -23,9 +23,9 @@ class RetrofitClient {
 
         fun retrofitInstance(): FakeAPI {
             val retrofit = Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
             return retrofit.create(FakeAPI::class.java)
         }
     }
