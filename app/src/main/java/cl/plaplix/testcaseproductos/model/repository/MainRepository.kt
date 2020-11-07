@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class MainRepository(context: Context) {
 
-    val tag = "MainRepository"
+    private val tag = "MainRepository"
 
     private var productDataBase = ProductDataBase.getDataBase(context)
     var productList = productDataBase.productDB().getAllProduct()
