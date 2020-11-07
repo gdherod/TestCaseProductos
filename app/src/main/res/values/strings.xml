@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">TestCaseProductos</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="name_text_dots">Name: </string>
+    <string name="price_text_dots">Price: $</string>
+    <string name="description_text_dots">Description: </string>
+    <string name="last_price_text_dots">Last price: $</string>
+    <string name="credit_text_dots">Credit: </string>
     <string name="name">Name</string>
     <string name="price">Price</string>
+    <string name="description">Description</string>
+    <string name="last_price">Last price</string>
+    <string name="credit">Credit</string>
 </resources>
