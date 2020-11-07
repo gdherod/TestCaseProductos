@@ -8,18 +8,15 @@ import androidx.room.Query
 
 @Dao
 interface ProductDao {
-    @Query("SELECT * FROM product_table")
-    fun getAllProduct(): LiveData<List<ProductEntity>>
-
-    @Query("SELECT * FROM detail_table")
-    fun getAllDetail(): LiveData<List<DetailEntity>>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllProducts(productList: List<ProductEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllDetails(detailList: List<DetailEntity>)
+    suspend fun insertDetails(detail: DetailEntity)
 
-    @Query("SELECT * FROM product_table WHERE id = :product_id")
+    @Query("SELECT * FROM product_table")
+    fun getAllProduct(): LiveData<List<ProductEntity>>
+
+    @Query("SELECT * FROM detail_table WHERE id = :product_id")
     fun getProductDetail(product_id: Int): LiveData<DetailEntity>
 }
