@@ -2,7 +2,6 @@ package cl.plaplix.testcaseproductos.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import cl.plaplix.testcaseproductos.R
 import cl.plaplix.testcaseproductos.databinding.ActivityMainBinding
 import cl.plaplix.testcaseproductos.utils.TimberInitializer
 
