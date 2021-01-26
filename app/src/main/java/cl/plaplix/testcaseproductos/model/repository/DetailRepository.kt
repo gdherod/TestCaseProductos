@@ -1,7 +1,6 @@
 package cl.plaplix.testcaseproductos.model.repository
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import cl.plaplix.testcaseproductos.model.db.DetailEntity
 import cl.plaplix.testcaseproductos.model.db.ProductDataBase
@@ -10,10 +9,9 @@ import cl.plaplix.testcaseproductos.model.remote.pojo.Detail
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class DetailRepository(context: Context) {
-
-    private val tag = "DetailRepository"
 
     private var productDataBase = ProductDataBase.getDataBase(context)
 
@@ -22,7 +20,7 @@ class DetailRepository(context: Context) {
 
         when {
             response.isSuccessful -> insertDetailDB(detailApiToEntity(response.body()!!))
-            else -> Log.d(tag, response.errorBody().toString())
+            else -> Timber.d(response.errorBody().toString())
         }
     }
 

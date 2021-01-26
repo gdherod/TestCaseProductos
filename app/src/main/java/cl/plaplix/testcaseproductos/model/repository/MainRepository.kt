@@ -1,7 +1,6 @@
 package cl.plaplix.testcaseproductos.model.repository
 
 import android.content.Context
-import android.util.Log
 import cl.plaplix.testcaseproductos.model.db.ProductDataBase
 import cl.plaplix.testcaseproductos.model.db.ProductEntity
 import cl.plaplix.testcaseproductos.model.remote.RetrofitClient
@@ -9,10 +8,9 @@ import cl.plaplix.testcaseproductos.model.remote.pojo.Product
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class MainRepository(context: Context) {
-
-    private val tag = "MainRepository"
 
     private var productDataBase = ProductDataBase.getDataBase(context)
     var productList = productDataBase.productDB().getAllProduct()
@@ -23,7 +21,7 @@ class MainRepository(context: Context) {
 
         when {
             response.isSuccessful -> insertProductDB(productApiToEntity(response.body()!!))
-            else -> Log.d(tag, response.errorBody().toString())
+            else -> Timber.d(response.errorBody().toString())
         }
     }
 
